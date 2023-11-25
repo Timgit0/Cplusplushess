@@ -474,7 +474,7 @@ int main()
 
     std :: vector<std :: vector<Piece>> board;
 
-    std :: string colorToMove = "white";
+    std :: string colorToMove = "black";
 
     board = CreateStartingBoard();
 
