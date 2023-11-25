@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1700679482 source:d:\tim\chess\main.cpp
+	<iostream>
+	<vector>
+	<string>
+	<io.h>
+	<fcntl.h>
+
