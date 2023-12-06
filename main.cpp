@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <io.h>
+//#include <io.h>
 #include <fcntl.h>
 
 
@@ -65,13 +65,13 @@ public:
         if (name == "pawn")
         {
             /*
-            /¯\
+            /Â¯\
             \ /
             / \
-            ¯¯¯
+            Â¯Â¯Â¯
             */
             piece0.push_back('/');
-            piece0.push_back('\u00AF');
+            piece0.push_back('_');
             piece0.push_back('\\');
 
             piece1.push_back('\\');
@@ -83,20 +83,20 @@ public:
             else if (color == "black") piece2.push_back('b');
             piece2.push_back('\\');
 
-            piece3.push_back('\u00AF');
-            piece3.push_back('\u00AF');
-            piece3.push_back('\u00AF');
+            piece3.push_back('-');
+            piece3.push_back('-');
+            piece3.push_back('-');
         }
         else if (name == "knight")
         {
             /*
-            /¯|
+            /Â¯|
             \ |
             / |
-            ¯¯¯
+            Â¯Â¯Â¯
             */
             piece0.push_back('/');
-            piece0.push_back('\u00AF');
+            piece0.push_back('-');
             piece0.push_back('|');
 
             piece1.push_back('\\');
@@ -108,24 +108,24 @@ public:
             else if (color == "black") piece2.push_back('b');
             piece2.push_back('|');
 
-            piece3.push_back('\u00AF');
-            piece3.push_back('\u00AF');
-            piece3.push_back('\u00AF');
+            piece3.push_back('-');
+            piece3.push_back('-');
+            piece3.push_back('-');
         }
         else if (name == "bishop")
         {
             /*
             /*\
-            \¯/
+            \Â¯/
             / \
-            ¯¯¯
+            Â¯Â¯Â¯
             */
             piece0.push_back('/');
             piece0.push_back('*');
             piece0.push_back('\\');
 
             piece1.push_back('\\');
-            piece1.push_back('\u00AF');
+            piece1.push_back('-');
             piece1.push_back('/');
 
             piece2.push_back('/');
@@ -133,9 +133,9 @@ public:
             else if (color == "black") piece2.push_back('b');
             piece2.push_back('\\');
 
-            piece3.push_back('\u00AF');
-            piece3.push_back('\u00AF');
-            piece3.push_back('\u00AF');
+            piece3.push_back('-');
+            piece3.push_back('-');
+            piece3.push_back('-');
         }
         else if (name == "rook")
         {
@@ -143,7 +143,7 @@ public:
             |V|
             | |
             / \
-            ¯¯¯
+            Â¯Â¯Â¯
             */
             piece0.push_back('|');
             piece0.push_back('V');
@@ -158,9 +158,9 @@ public:
             else if (color == "black") piece2.push_back('b');
             piece2.push_back('\\');
 
-            piece3.push_back('\u00AF');
-            piece3.push_back('\u00AF');
-            piece3.push_back('\u00AF');
+            piece3.push_back('-');
+            piece3.push_back('-');
+            piece3.push_back('-');
         }
         else if (name == "king")
         {
@@ -168,7 +168,7 @@ public:
             /+\
             \ /
             / \
-            ¯¯¯
+            Â¯Â¯Â¯
             */
             piece0.push_back('/');
             piece0.push_back('+');
@@ -183,24 +183,24 @@ public:
             else if (color == "black") piece2.push_back('b');
             piece2.push_back('\\');
 
-            piece3.push_back('\u00AF');
-            piece3.push_back('\u00AF');
-            piece3.push_back('\u00AF');
+            piece3.push_back('-');
+            piece3.push_back('-');
+            piece3.push_back('-');
         }
         else if (name == "queen")
         {
             /*
             \|/
-            |¯|
+            |Â¯|
             / \
-            ¯¯¯
+            Â¯Â¯Â¯
             */
             piece0.push_back('\\');
             piece0.push_back('|');
             piece0.push_back('/');
 
             piece1.push_back('|');
-            piece1.push_back('\u00AF');
+            piece1.push_back('-');
             piece1.push_back('|');
 
             piece2.push_back('/');
@@ -208,9 +208,9 @@ public:
             else if (color == "black") piece2.push_back('b');
             piece2.push_back('\\');
 
-            piece3.push_back('\u00AF');
-            piece3.push_back('\u00AF');
-            piece3.push_back('\u00AF');
+            piece3.push_back('-');
+            piece3.push_back('-');
+            piece3.push_back('-');
 
         }
 
@@ -344,38 +344,38 @@ std :: vector<std :: vector<Piece>> CreateStartingBoard()
 
 void PrintBoard(std :: vector<std :: vector<Piece>> _board)
 {
-    system("cls");
+    system("clear");
     for (int y = 0; y < 8*4; y++)
     {
         if (y%4 == 0)
         {
             for (int x = 0; x < 8*3; x++)
             {
-                if (x == 0) std :: wcout << '+' << '-';
-                else if (x%3 == 0) std :: wcout << '-' << '+' << '-';
-                std :: wcout << '—';
+                if (x == 0) std :: cout << '+' << '-';
+                else if (x%3 == 0) std :: cout << '-' << '+' << '-';
+                std :: cout << '-';
             }
-            std :: wcout << '-' << '+';
-            std :: wcout << '\n';
+            std :: cout << '-' << '+';
+            std :: cout << '\n';
         }
         for (int x = 0; x < 8*3; x++)
         {
-            if (x == 0) std :: wcout << '|' << ' ';
-            else if (x%3 == 0) std :: wcout << ' ' << '|' << ' ';
-            std :: wcout << _board[y/4][x/3].picture[y%4][x%3];
+            if (x == 0) std :: cout << '|' << ' ';
+            else if (x%3 == 0) std :: cout << ' ' << '|' << ' ';
+            std :: cout << _board[y/4][x/3].picture[y%4][x%3];
         }
-        std :: wcout << ' ' << '|' << ' ';
-        std :: wcout << '\n';
+        std :: cout << ' ' << '|' << ' ';
+        std :: cout << '\n';
     }
     for (int x = 0; x < 8*3-1; x++)
     {
-        if (x == 0) std :: wcout << '+' << '-';
-        std :: wcout << '—';
-        if (x == 8*3-2) std :: wcout << '—';
-        if (x%3 == 2 && x != 0) std :: wcout << '-' << '+' << '-';
+        if (x == 0) std :: cout << '+' << '-';
+        std :: cout << '-';
+        if (x == 8*3-2) std :: cout << '-';
+        if (x%3 == 2 && x != 0) std :: cout << '-' << '+' << '-';
     }
-    std :: wcout << '-' << '+';
-    std :: wcout << '\n';
+    std :: cout << '-' << '+';
+    std :: cout << '\n';
 }
 
 
@@ -417,9 +417,9 @@ std :: vector<std :: vector<Piece>> MakeMove(std :: vector<std :: vector<Piece>>
     x1 = TheirNotationToOurs(_x0, _y0, _x1, _y1)[2];
     y1 = TheirNotationToOurs(_x0, _y0, _x1, _y1)[3];
 
-    //std :: wcout << x0 << y0 << x1 << y1;
-    //std :: wcout << _board[x0][y0].CanMoveTo(TheirNotationToOurs(_x0, _y0, _x1, _y1), _board[x1][y1].name != "nothing", _board, _colorToMove);
-    //std :: wcout << _board[3][3].enPassant;
+    //std :: cout << x0 << y0 << x1 << y1;
+    //std :: cout << _board[x0][y0].CanMoveTo(TheirNotationToOurs(_x0, _y0, _x1, _y1), _board[x1][y1].name != "nothing", _board, _colorToMove);
+    //std :: cout << _board[3][3].enPassant;
     if (_board[x0][y0].CanMoveTo(TheirNotationToOurs(_x0, _y0, _x1, _y1), (_board[x1][y1].name != "nothing"), _board, _colorToMove))
     {
         if (x1 == 0 && _board[x0][y0].name == "pawn" && _board[x0][y0].color == "white") _board[x1][y1] = Piece("queen", "white");
@@ -429,7 +429,7 @@ std :: vector<std :: vector<Piece>> MakeMove(std :: vector<std :: vector<Piece>>
     }
     else
     {
-        std :: wcout << 'i' << 'm' << 'p' << 'o' << 's' << 's' << 'i' << 'b' << 'l' << 'e' << ' ' << 'm' << 'o' << 'v' << 'e' << '\n';
+        std :: cout << "impossible move!\n";
         return MakeMove(_board, _colorToMove);
     }
     if ((_board[x0][y0].name == "pawn")&&(_board[x0][y1].enPassant))
@@ -462,15 +462,15 @@ bool CheckKings(std :: vector<std :: vector<Piece>> _board)
         }
     }
     if (whiteKing && blackKing) return true;
-    if (whiteKing) std :: wcout << "white won!!!\n";
-    if (blackKing) std :: wcout << "b won!!!\n";
+    if (whiteKing) std :: cout << "white won!!!\n";
+    if (blackKing) std :: cout << "b won!!!\n";
     return false;
 
 }
 
 int main()
 {
-    _setmode(_fileno(stdout), _O_U16TEXT);
+//    _setmode(_fileno(stdout), _O_U16TEXT);
 
     std :: vector<std :: vector<Piece>> board;
 
